@@ -8,5 +8,5 @@ export const sequelize = new Sequelize({
   password: PASSWORD_DB,
   dialect: "postgres",
   username: USER_DB,
-  database: "postgres",
+  database: "postApp",
 });
