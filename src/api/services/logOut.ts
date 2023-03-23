@@ -1,4 +1,4 @@
-import { User } from "../../db/model";
+import { Users } from "../../db/model";
 
 const logOutService = () => {};
 

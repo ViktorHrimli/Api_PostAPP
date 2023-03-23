@@ -1,11 +1,13 @@
 import express from "express";
 
-import { wrapper } from "../midllewares";
+import { wrapper, validation } from "../midllewares";
+
+import { signInCntr } from "../controllers";
 
 const router = express.Router();
 
 // REGISTRATION
-router.post("/signin", wrapper);
+router.post("/signin", signInCntr);
 // LOGIN
 router.post("/signup", wrapper);
 // LOGOUT

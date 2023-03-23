@@ -7,9 +7,9 @@ type BaseType = {
 };
 
 const wrapper = (controller: any) => {
-  return async ({ req, res, next }: BaseType) => {
+  return ({ req, res, next }: BaseType) => {
     try {
-      await controller(req, res, next);
+      controller(req, res, next);
     } catch (error) {
       next(error);
     }

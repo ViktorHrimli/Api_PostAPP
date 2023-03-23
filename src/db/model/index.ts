@@ -1,10 +1,10 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from "../index";
 
-class User extends Model {}
+class Users extends Model {}
 class Avatar extends Model {}
 
-User.init(
+Users.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -24,7 +24,7 @@ User.init(
   },
   {
     sequelize,
-    modelName: "User",
+    modelName: "Users",
   }
 );
 
@@ -46,4 +46,4 @@ Avatar.init(
   }
 );
 
-export { Avatar, User };
+export { Avatar, Users };

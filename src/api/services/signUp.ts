@@ -1,5 +1,11 @@
-import { User } from "../../db/model";
+import { Users } from "../../db/model";
 
-const singUpService = () => {};
+interface IUser {
+  email: string;
+  password: string;
+  username: string;
+}
+
+const singUpService = async ({ email, username, password }: IUser) => {};
 
 export { singUpService };
