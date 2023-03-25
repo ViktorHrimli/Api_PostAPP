@@ -1,4 +1,4 @@
-import { Users } from "../../db/model";
+const { User } = require("../../db/models");
 
 import bycrypt from "bcrypt";
 
@@ -11,15 +11,13 @@ interface IUser {
 const singInService = async ({ email, password, username }: IUser) => {
   const hashPassword: string = await bycrypt.hash(password, 7);
   const urlAvatar = "awdawdawd";
-  console.log(hashPassword);
-  const registerUser = await Users.create({
+
+  const registerUser = await User.create({
     email: email,
     password: hashPassword,
     username: username,
-    urlAvatar: urlAvatar,
+    avatarUrl: urlAvatar,
   });
-
-  console.log(registerUser);
 
   return registerUser;
 };

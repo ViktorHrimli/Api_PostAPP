@@ -1,5 +1,3 @@
-import { Users } from "../../db/model";
-
 interface IUser {
   email: string;
   password: string;

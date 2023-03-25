@@ -1,3 +1,4 @@
 import { HttpError } from "./handleErrors";
+import { logger } from "./logger";
 
-export { HttpError };
+export { HttpError, logger };

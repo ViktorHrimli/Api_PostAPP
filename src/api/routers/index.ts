@@ -4,10 +4,12 @@ import { wrapper, validation } from "../midllewares";
 
 import { signInCntr } from "../controllers";
 
+import { schemaSignIng } from "../shems/validation";
+
 const router = express.Router();
 
 // REGISTRATION
-router.post("/signin", signInCntr);
+router.post("/signin", validation(schemaSignIng), wrapper(signInCntr));
 // LOGIN
 router.post("/signup", wrapper);
 // LOGOUT

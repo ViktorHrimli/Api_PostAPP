@@ -6,9 +6,11 @@ const messages: any = {
   409: "Conflict",
 };
 
-const HttpError = (status: number, message: string = messages[status]) => {
+const HttpError = (status: number, message = messages[status]) => {
   const error: any = new Error(message);
   error.status = status;
+  console.log(error);
+
   return error;
 };
 

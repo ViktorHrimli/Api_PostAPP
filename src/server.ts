@@ -1,11 +1,12 @@
 import { app } from "./index";
-import { sequelize } from "./db";
+
+const { sequelize } = require("./db/models");
 
 const { PORT } = process.env;
 
 const main = async () => {
   try {
-    await sequelize.authenticate();
+    await sequelize.sync({ force: true });
     console.log("Connection has been established successfully.");
     app.listen(PORT, () => {
       console.log("Server listen on port 5000");
