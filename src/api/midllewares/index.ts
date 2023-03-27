@@ -1,4 +1,5 @@
 import { wrapper } from "./wrapper";
 import { validation } from "./validation";
+import { auth } from "./auth";
 
-export { wrapper, validation };
+export { wrapper, validation, auth };

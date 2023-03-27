@@ -1,15 +1,16 @@
 import express from "express";
 
-import { wrapper, validation } from "../midllewares";
-
+// MIDLLEWARES
+import { wrapper, validation, auth } from "../midllewares";
+// CONTORLLERS
 import { signInCntr } from "../controllers";
-
+// SHEMS
 import { schemaSignIng } from "../shems/validation";
 
 const router = express.Router();
 
 // REGISTRATION
-router.post("/signin", validation(schemaSignIng), wrapper(signInCntr));
+router.post("/signin", auth, validation(schemaSignIng), wrapper(signInCntr));
 // LOGIN
 router.post("/signup", wrapper);
 // LOGOUT
