@@ -2,13 +2,13 @@
 const { Model, DATE } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
+    static associate({ Avatar }) {
+      this.hasOne(Avatar, {
+        foreignKey: "userId",
+        as: "avatars",
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
+      });
     }
   }
   User.init(
@@ -28,9 +28,18 @@ module.exports = (sequelize, DataTypes) => {
       email: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
       },
       avatarUrl: {
         type: DataTypes.STRING,
+        allowNull: false,
+      },
+      token: {
+        type: DataTypes.STRING,
+      },
+      activeProfile: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
         allowNull: false,
       },
     },

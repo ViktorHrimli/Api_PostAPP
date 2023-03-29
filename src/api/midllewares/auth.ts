@@ -6,13 +6,15 @@ type HeadersType = {
 };
 
 const auth = (req: Request, res: Response, next: NextFunction) => {
-  const { authorization = "" } = req.headers;
+  // const { authorization = "" } = req.headers;
 
-  const [Bearer, token] = authorization.split("");
+  // const [Bearer, token] = authorization.split("");
 
-  if (!token || Bearer !== "Bearer") {
-    next(HttpError(401, "Please provide a token!"));
-  }
+  // if (!token || Bearer !== "Bearer") {
+  //   next(HttpError(401, "Please provide a token!"));
+  // }
+
+  next();
 };
 
 export { auth };
