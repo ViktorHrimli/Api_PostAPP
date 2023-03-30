@@ -12,7 +12,7 @@ interface IUser {
 }
 
 const singInService = async ({ email, password, username }: IUser) => {
-  const tokens = new TokenGenerator(email, username);
+  const tokens = new TokenGenerator();
 
   const hashPassword: string = await bycrypt.hash(password, 7);
 
@@ -23,10 +23,11 @@ const singInService = async ({ email, password, username }: IUser) => {
     password: hashPassword,
     username: username,
     avatarUrl: urlGravatar,
-    token: tokens.createToken(),
   });
 
-  return registerUser;
+  const token = tokens.createToken(registerUser);
+
+  return { data: registerUser, token };
 };
 
 export { singInService };

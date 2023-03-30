@@ -1,9 +1,8 @@
 interface IUser {
   email: string;
   password: string;
-  username: string;
 }
 
-const singUpService = async ({ email, username, password }: IUser) => {};
+const singUpService = async ({ email, password }: IUser) => {};
 
 export { singUpService };
