@@ -1,22 +1,17 @@
 const gravatar = require("gravatar");
 const { User } = require("../../db/models");
 
-import bycrypt from "bcrypt";
+// locals
+import { TokenGenerator, ManagerHashPassword } from "../helpres";
+import { IUser } from "../types";
 
-import { TokenGenerator } from "../helpres";
-
-interface IUser {
-  email: string;
-  password: string;
-  username: string;
-}
+// instans
+const tokens = new TokenGenerator();
+const hash = new ManagerHashPassword();
 
 const singInService = async ({ email, password, username }: IUser) => {
-  const tokens = new TokenGenerator();
-
-  const hashPassword: string = await bycrypt.hash(password, 7);
-
   const urlGravatar = gravatar.url(email, { s: "100", protocol: "http" });
+  const hashPassword = await hash.hashPassword(password);
 
   const registerUser = await User.create({
     email: email,

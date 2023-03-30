@@ -7,8 +7,15 @@ export interface IUserInfo {
   email: string;
   username: string;
   avatarUrl: string;
+  password: string;
 }
 
 export interface UserRequest extends Request {
   user?: IUserInfo;
+}
+
+export interface IUser {
+  email: string;
+  password: string;
+  username: string;
 }

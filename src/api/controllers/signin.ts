@@ -8,7 +8,7 @@ const signInCntr = async (req: Request, res: Response, next: NextFunction) => {
 
     res.status(201).json(user);
   } catch (error) {
-    res.json(error.message);
+    res.status(400).json(error.message);
   }
 };
 
