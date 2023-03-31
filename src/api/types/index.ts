@@ -12,6 +12,7 @@ export interface IUserInfo {
 
 export interface UserRequest extends Request {
   user?: IUserInfo;
+  file?: any;
 }
 
 export interface IUser {

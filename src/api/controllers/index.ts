@@ -1,4 +1,5 @@
-import { signInCntr } from "./signin";
+import { signInCntr } from "./signIn";
 import { signUpCntr } from "./signUp";
+import { uploadPhoto } from "./uploadPhoto";
 
-export { signInCntr, signUpCntr };
+export { signInCntr, signUpCntr, uploadPhoto };
