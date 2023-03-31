@@ -16,14 +16,14 @@ const signUpCntr = async (req: UserRequest, res: Response) => {
     );
 
     if (!checkPassword) {
-      res.status(403).json({ status: "filed", msg: "Incorrect password!" });
+      res.status(401).json({ status: "filed", msg: "Filed token!" });
+    } else {
+      const user = await singUpService(id);
+      res.status(200).json(user);
     }
-
-    const user = await singUpService(id);
-
-    res.status(200).json(user);
   } catch (error) {
-    res.status(400).json(error.message);
+    console.log(error.message);
+    res.status(500).json(error.message);
   }
 };
 

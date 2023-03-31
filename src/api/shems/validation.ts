@@ -14,4 +14,9 @@ const schemaSignIng = Joi.object({
     .required(),
 });
 
-export { schemaSignIng };
+const schemaSignUp = Joi.object({
+  email: Joi.string().email().regex(shemaRegex.email).required(),
+  password: Joi.string().regex(shemaRegex.password).required(),
+});
+
+export { schemaSignIng, schemaSignUp };

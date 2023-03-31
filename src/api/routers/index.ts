@@ -5,16 +5,16 @@ import { wrapper, validation, auth } from "../midllewares";
 // CONTORLLERS
 import { signInCntr, signUpCntr } from "../controllers";
 // SHEMS
-import { schemaSignIng } from "../shems/validation";
+import { schemaSignIng, schemaSignUp } from "../shems/validation";
 
 const router = express.Router();
 
 // REGISTRATION
 router.post("/signin", validation(schemaSignIng), wrapper(signInCntr));
 // LOGIN
-router.post("/signup", auth, wrapper(signUpCntr));
+router.post("/signup", auth, validation(schemaSignUp), wrapper(signUpCntr));
 // LOGOUT
-router.post("/logout", wrapper);
+router.post("/logout", auth, wrapper);
 // UPLOAD AVATAR
 router.post("/avatar", auth, wrapper);
 
