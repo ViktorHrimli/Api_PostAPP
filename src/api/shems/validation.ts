@@ -3,9 +3,7 @@ import { shemaRegex } from "./regex";
 
 const schemaSignIng = Joi.object({
   email: Joi.string().email().regex(shemaRegex.email).required(),
-  password: Joi.string()
-    .regex(shemaRegex.password, "Password must be length min 8")
-    .required(),
+  password: Joi.string().regex(shemaRegex.password).required(),
   username: Joi.string()
     .alphanum()
     .regex(shemaRegex.username)
