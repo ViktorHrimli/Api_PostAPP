@@ -8,8 +8,8 @@ const main = async () => {
   try {
     await sequelize.sync({ alter: true });
     console.log("Connection has been established successfully.");
-    app.listen(PORT, () => {
-      console.log("Server listen on port 5000");
+    app.listen(PORT ?? 3000, () => {
+      console.log(`Server listen on port ${PORT}`);
     });
   } catch (error) {
     console.error("Unable to connect to the database:", error);
