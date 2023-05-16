@@ -10,6 +10,7 @@ const schemaSignIng = Joi.object({
     .min(3)
     .max(30)
     .required(),
+  photo: Joi.string(),
 });
 
 const schemaSignUp = Joi.object({
