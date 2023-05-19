@@ -1,12 +1,10 @@
-import { Response } from "express";
-
-import { singUpService } from "../services";
-import { UserRequest, IUserInfo } from "../types";
-import { ManagerHashPassword } from "../helpres";
+import { singUpService } from "../../services";
+import { IUserInfo, BaseConfig } from "../../types";
+import { ManagerHashPassword } from "../../helpres";
 
 const hash = new ManagerHashPassword();
 
-const signUpCntr = async (req: UserRequest, res: Response) => {
+const signUpCntr = async ({ req, res, next }: BaseConfig) => {
   try {
     const { password, id }: IUserInfo = req.user!;
 

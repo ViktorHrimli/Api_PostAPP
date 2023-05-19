@@ -1,5 +1,12 @@
-import { signInCntr } from "./signIn";
-import { signUpCntr } from "./signUp";
-import { uploadPhoto } from "./uploadPhoto";
+import { signInCntr, signUpCntr } from "./auth";
+import { uploadPhoto } from "./user";
+import { getPosts, createPost, getPostById } from "./post";
 
-export { signInCntr, signUpCntr, uploadPhoto };
+export {
+  signInCntr,
+  signUpCntr,
+  uploadPhoto,
+  createPost,
+  getPostById,
+  getPosts,
+};

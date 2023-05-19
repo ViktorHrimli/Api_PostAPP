@@ -1,14 +1,9 @@
-import { Response } from "express";
-
-import { UserRequest } from "../types";
-import { uploadPhotoOnCloud } from "../utils";
+import { BaseConfig } from "../../types";
+import { uploadPhotoOnCloud } from "../../utils";
 
 const fs = require("fs/promises");
-const path = require("path");
 
-const deletePath = path.join(__dirname, "../../uploads/");
-
-const uploadPhoto = async (req: UserRequest, res: Response) => {
+const uploadPhoto = async ({ req, res, next }: BaseConfig) => {
   try {
     const url = uploadPhotoOnCloud(req.file.path, req.user?.email!);
 

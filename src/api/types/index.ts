@@ -1,4 +1,4 @@
-import { Request } from "express";
+import { Request, Response, NextFunction } from "express";
 
 export interface IUserInfo {
   uuid: string;
@@ -13,6 +13,12 @@ export interface IUserInfo {
 export interface UserRequest extends Request {
   user?: IUserInfo;
   file?: any;
+}
+
+export interface BaseConfig {
+  req: UserRequest;
+  res: Response;
+  next: NextFunction;
 }
 
 export interface IUser {

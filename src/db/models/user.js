@@ -2,12 +2,19 @@
 const { Model, DATE } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    static associate({ Avatar }) {
+    static associate({ Avatar, Post }) {
       this.hasOne(Avatar, {
         foreignKey: "userId",
         as: "avatars",
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
+      });
+
+      this.hasMany(Post, {
+        foreignKey: "userId",
+        as: "posts",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       });
     }
   }
