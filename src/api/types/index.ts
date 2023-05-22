@@ -2,11 +2,11 @@ import { Request, Response, NextFunction } from "express";
 
 export interface IUserInfo {
   uuid: string;
-  activeProfile: boolean;
+  activeProfile?: boolean;
   id: number;
   email: string;
   username: string;
-  avatarUrl: string;
+  avatarUrl?: string;
   password: string;
 }
 

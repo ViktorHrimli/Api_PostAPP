@@ -1,5 +1,5 @@
 const gravatar = require("gravatar");
-const { User } = require("../../db/models");
+import { User } from "../../db/models";
 
 // locals
 import { TokenGenerator, ManagerHashPassword } from "../helpres";
@@ -14,11 +14,11 @@ const singInService = async ({ email, password, username, photo }: IUser) => {
   const urlGravatar = gravatar.url(email, { s: "100", protocol: "http" });
   const hashPassword = await hash.hashPassword(password);
 
-  const registerUser = await User.create({
+  const registerUser: any = await User.create({
     email: email,
     password: hashPassword,
     username: username,
-    avatarUrl: photo ?? urlGravatar,
+    // avatarUrl: photo ?? urlGravatar,
   });
 
   const token = tokens.createToken(registerUser);

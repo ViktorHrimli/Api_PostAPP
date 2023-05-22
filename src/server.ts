@@ -1,6 +1,6 @@
 import { app } from "./index";
 
-const { sequelize } = require("./db/models");
+const { sequelize } = require("./db");
 
 const { PORT } = process.env;
 

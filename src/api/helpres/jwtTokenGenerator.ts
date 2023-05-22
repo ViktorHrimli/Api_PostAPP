@@ -5,8 +5,8 @@ import { IUserInfo } from "../types";
 const { SECRET_TOKEN_KEY = "adaw@141" } = process.env;
 
 class TokenGenerator {
-  public createToken(user: IUserInfo) {
-    const { email, id, username, uuid } = user;
+  public createToken(registerUser: IUserInfo) {
+    const { email, id, username, uuid } = registerUser;
 
     const token = jwt.sign({ email, id, username, uuid }, SECRET_TOKEN_KEY, {
       expiresIn: "7d",
