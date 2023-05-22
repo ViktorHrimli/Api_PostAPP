@@ -10,6 +10,7 @@ const schemaSignIng = Joi.object({
     .min(3)
     .max(30)
     .required(),
+  photo: Joi.string(),
 });
 
 const schemaSignUp = Joi.object({
@@ -17,4 +18,9 @@ const schemaSignUp = Joi.object({
   password: Joi.string().regex(shemaRegex.password).required(),
 });
 
-export { schemaSignIng, schemaSignUp };
+const shemaCreatePost = Joi.object({
+  title: Joi.string().regex(shemaRegex.text).required(),
+  location: Joi.string().regex(shemaRegex.text).required(),
+  url: Joi.string().uri().regex(shemaRegex.url).required(),
+});
+export { schemaSignIng, schemaSignUp, shemaCreatePost };
