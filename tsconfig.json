@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "module": "commonjs",
+    "module": "CommonJS",
     "lib": ["dom", "es6", "es2017", "esnext.asynciterable"],
     "skipLibCheck": true,
     "sourceMap": true,
@@ -24,9 +24,5 @@
     "baseUrl": "."
   },
   "exclude": ["node_modules"],
-  "include": [
-    "./src/**/*.ts",
-    "./src/**/*.ts",
-    "src/api/controllers/uploadPhoto.js"
-  ]
+  "include": ["./src/**/*.js", "./src/**/*.ts"]
 }
