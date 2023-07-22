@@ -5,7 +5,6 @@ import morgan from "morgan";
 
 import { userRouters, postsRouter, authRouters } from "./api/routers";
 import { error404, error500 } from "./api/helpres/apiErrors";
-import { postController } from "./api/controllers/post/test/index";
 
 dotenv.config();
 
@@ -18,7 +17,7 @@ app.use(cors());
 
 // Routers
 app.use("/api", authRouters);
-app.use("/api", postController.getRouters());
+app.use("/api", postsRouter);
 app.use("/api", userRouters);
 
 // Errors

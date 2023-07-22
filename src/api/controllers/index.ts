@@ -1,12 +1,5 @@
 import { signInCntr, signUpCntr } from "./auth";
 import { uploadPhoto } from "./user";
-import { getPosts, createPost, getPostById } from "./post";
+import { PostController } from "./post/post";
 
-export {
-  signInCntr,
-  signUpCntr,
-  uploadPhoto,
-  createPost,
-  getPostById,
-  getPosts,
-};
+export { signInCntr, signUpCntr, uploadPhoto, PostController };
