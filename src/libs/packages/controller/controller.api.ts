@@ -1,5 +1,5 @@
 import { Router, RouterOptions } from "express";
-import { apiMethod, apiPath } from "./libs/enums/enums";
+import { apiMethod, apiPath } from "../../enums/enums";
 
 class Controller {
   #router: RouterOptions | any = Router();

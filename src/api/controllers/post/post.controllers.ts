@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { Controller } from "../../../libs/packages/controller/controller.api";
 
-import { PostsApiPath, apiMethod } from "./libs/enums/enums";
+import { apiPath, apiMethod } from "../../../libs/enums/enums";
 
 const { Post } = require("../../../db/models");
 
@@ -10,7 +10,7 @@ class PostController extends Controller {
     super();
 
     this.addRouter(
-      { method: apiMethod.GET, path: PostsApiPath.POSTS },
+      { method: apiMethod.GET, path: apiPath.POSTS },
       this.createPost
     );
   }
